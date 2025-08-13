@@ -16,6 +16,7 @@ import DefaultOutlet from "./dashboard/DefaultOutlet";
 import GetQuoteinfo from "./dashboard/tables/GetQuoteinfo";
 import Recruitmentinfo from "./dashboard/tables/Recruitmentinfo";
 import AdminLayout from "./layout/Layout";
+import Get from "./components/forms/Get";
 
 const AppRouter = () => {
   const [auth, setAuth] = useState(null);
@@ -75,6 +76,7 @@ const AppRouter = () => {
           <Route path="/request-quote" element={<RequestQuoteForm />} />
           <Route path="/recruitment" element={<RecruitmentForm />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/get" element={<Get />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </>
       ) : isAdmin ? (
