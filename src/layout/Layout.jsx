@@ -21,11 +21,10 @@ const AdminLayout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-   const handleLogout = () => {
+  const handleLogout = () => {
     dispatch(logout()); // clear Redux state
     navigate("/login", { replace: true }); // redirect to login
   };
-
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -49,7 +48,7 @@ const AdminLayout = () => {
           }}
         >
           <img
-            src="assets/logo.png"
+            src="/public/assets/logo.png"
             alt="Logo"
             style={{ height: 100, width: 100, marginBottom: 8 }}
           />
@@ -98,26 +97,26 @@ const AdminLayout = () => {
           ]}
         /> */}
         <Menu
-  theme="light"
-  mode="inline"
-  selectedKeys={[location.pathname.includes("recruitment") ? "2" : "1"]} // keeps highlight in sync
-  onClick={({ key }) => {
-    if (key === "1") navigate("/dashboard/getquote");
-    else if (key === "2") navigate("/dashboard/recruitment");
-  }}
-  items={[
-    {
-      key: "1",
-      icon: <FormOutlined />,
-      label: "Request Quote Info",
-    },
-    {
-      key: "2",
-      icon: <UsergroupAddOutlined />,
-      label: "Recruitment Info",
-    },
-  ]}
-/>
+          theme="light"
+          mode="inline"
+          selectedKeys={[location.pathname.includes("recruitment") ? "2" : "1"]} // keeps highlight in sync
+          onClick={({ key }) => {
+            if (key === "1") navigate("/dashboard/getquote");
+            else if (key === "2") navigate("/dashboard/recruitment");
+          }}
+          items={[
+            {
+              key: "1",
+              icon: <FormOutlined />,
+              label: "Request Quote Info",
+            },
+            {
+              key: "2",
+              icon: <UsergroupAddOutlined />,
+              label: "Recruitment Info",
+            },
+          ]}
+        />
       </Sider>
       <Layout>
         <Header
@@ -194,18 +193,18 @@ const AdminLayout = () => {
           }}
         >
           <div
-            style={{
-              minHeight: 200,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#888",
-              fontSize: 22,
-              fontWeight: 500,
-            }}
+          // style={{
+          //   minHeight: 200,
+          //   display: "flex",
+          //   alignItems: "center",
+          //   justifyContent: "center",
+          //   color: "#888",
+          //   fontSize: 22,
+          //   fontWeight: 500,
+          // }}
           >
             {/* {children} */}
-             <Outlet />
+            <Outlet />
           </div>
         </Content>
       </Layout>

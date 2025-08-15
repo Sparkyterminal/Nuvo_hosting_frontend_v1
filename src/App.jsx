@@ -1,3 +1,12 @@
+import { useLocation } from "react-router-dom";
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, Routes, Route } from "react-router-dom";
@@ -68,34 +77,37 @@ const AppRouter = () => {
   }
 
   return (
-    <Routes>
-      {/* If NOT logged in → show public pages */}
-      {!auth ? (
-        <>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/request-quote" element={<RequestQuoteForm />} />
-          <Route path="/recruitment" element={<RecruitmentForm />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/get" element={<Get />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </>
-      ) : isAdmin ? (
-        /* If logged in & admin → allow dashboard */
-        <>
-          <Route path="/dashboard" element={<AdminLayout />}>
-            <Route index element={<Navigate to="getquote" replace />} />
-            <Route path="getquote" element={<GetQuoteinfo />} />
-            <Route path="recruitment" element={<Recruitmentinfo />} />
-          </Route>
-        </>
-      ) : (
-        /* If logged in but NOT admin → redirect to home or logout */
-        <>
-          <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </>
-      )}
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        {/* If NOT logged in → show public pages */}
+        {!auth ? (
+          <>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/request-quote" element={<RequestQuoteForm />} />
+            <Route path="/recruitment" element={<RecruitmentForm />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/get" element={<Get />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </>
+        ) : isAdmin ? (
+          /* If logged in & admin → allow dashboard */
+          <>
+            <Route path="/dashboard" element={<AdminLayout />}>
+              <Route index element={<Navigate to="getquote" replace />} />
+              <Route path="getquote" element={<GetQuoteinfo />} />
+              <Route path="recruitment" element={<Recruitmentinfo />} />
+            </Route>
+          </>
+        ) : (
+          /* If logged in but NOT admin → redirect to home or logout */
+          <>
+            <Route path="/" element={<HomePage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </>
+        )}
+      </Routes>
+    </>
   );
 };
 

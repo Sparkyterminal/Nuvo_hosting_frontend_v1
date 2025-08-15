@@ -137,10 +137,10 @@ const RequestQuoteForm = () => {
   return (
     <div
       style={{
-        minHeight: "100vh",
+        height: "100vh",
+        overflowY: "auto",
         background: "#000",
         color: "#fff",
-        width: "100vw",
         margin: 0,
         padding: 0,
       }}
@@ -201,7 +201,7 @@ const RequestQuoteForm = () => {
         transition={{ duration: 0.7, ease: "easeOut" }}
         style={{ color: "#fff" }}
       >
-        Request a <span style={{ color: "#fff" }}>Quote</span>
+        Request a <span style={{ color: "#FFD700" }}>Quote</span>
       </motion.h1>
 
       <motion.div
@@ -491,8 +491,10 @@ const RequestQuoteForm = () => {
                     name="needOutfit"
                     control={control}
                     rules={{
-                      validate: value =>
-                        value === true || value === false || "Please select if you need outfit"
+                      validate: (value) =>
+                        value === true ||
+                        value === false ||
+                        "Please select if you need outfit",
                     }}
                     render={({ field }) => (
                       <Radio.Group
@@ -516,8 +518,10 @@ const RequestQuoteForm = () => {
                     name="needStaffBriefing"
                     control={control}
                     rules={{
-                      validate: value =>
-                        value === true || value === false || "Please select if you need briefing"
+                      validate: (value) =>
+                        value === true ||
+                        value === false ||
+                        "Please select if you need briefing",
                     }}
                     render={({ field }) => (
                       <Radio.Group
@@ -541,8 +545,10 @@ const RequestQuoteForm = () => {
                     name="needHeadStaff"
                     control={control}
                     rules={{
-                      validate: value =>
-                        value === true || value === false || "Please select if you need head staff"
+                      validate: (value) =>
+                        value === true ||
+                        value === false ||
+                        "Please select if you need head staff",
                     }}
                     render={({ field }) => (
                       <Radio.Group
@@ -769,7 +775,7 @@ const RequestQuoteForm = () => {
 
           {/* Submit */}
           <Form.Item style={{ marginTop: 24 }}>
-            <Button
+            {/* <Button
               type="primary"
               htmlType="submit"
               loading={isSubmitting}
@@ -786,7 +792,31 @@ const RequestQuoteForm = () => {
               }}
             >
               Get Quote
+            </Button> */}
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={isSubmitting}
+              block
+              style={{
+                background: "#13294B",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: 18,
+                letterSpacing: 1,
+                boxShadow: "0 0 12px 2px #13294B",
+                border: "none",
+                height: "50px",
+              }}
+              className="submit-btn"
+            >
+              Get Quote
             </Button>
+            <style>{`
+             .submit-btn:hover {
+              background: #2546a3 !important;
+             }
+           `}</style>
           </Form.Item>
         </Form>
       </motion.div>
