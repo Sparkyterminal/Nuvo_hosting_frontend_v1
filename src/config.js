@@ -13,7 +13,7 @@
 //   ADMIN: 'ADMIN',
 //   USER: 'USER'
 // }
-export const API_BASE_URL = "https://www.nuvohosting.org/api/";
+export const API_BASE_URL = "https://www.nuvohosting.org/";
 export const BASE_URL = "/";
 export const SOCKET_URL = "https://www.nuvohosting.org";
 export const BASE_LINK = "/";
