@@ -48,7 +48,7 @@ const AdminLayout = () => {
           }}
         >
           <img
-            src="/public/assets/logo.png"
+            src="/assets/logo.png"
             alt="Logo"
             style={{ height: 100, width: 100, marginBottom: 8 }}
           />

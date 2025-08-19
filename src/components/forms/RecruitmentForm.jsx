@@ -241,11 +241,48 @@ const RecruitmentForm = () => {
               Upload
             </Divider>
             <Form.Item label="Upload your picture">
-              <Upload
+              {/* <Upload
                 listType="picture-card"
                 maxCount={1}
                 fileList={fileList}
                 beforeUpload={() => false}
+                onChange={handleUploadChange}
+                showUploadList={{
+                  showPreviewIcon: false,
+                  showRemoveIcon: false,
+                }}
+              >
+                {fileList.length >= 1 ? null : (
+                  <div style={{ textAlign: "center", color: "#999" }}>
+                    <UploadOutlined />
+                    <div style={{ marginTop: 8 }}>Upload</div>
+                  </div>
+                )}
+              </Upload> */}
+              <Upload
+                listType="picture-card"
+                maxCount={1}
+                fileList={fileList}
+                beforeUpload={(file) => {
+                  const regex = /^[a-zA-Z0-9_-]+\.[a-zA-Z0-9]+$/;
+                  // Only letters, numbers, underscore, hyphen; then dot; then extension
+
+                  if (!regex.test(file.name)) {
+                    alert(
+                      "Invalid file name! Use only letters, numbers, underscore, or hyphen. No spaces or special characters."
+                    );
+                    return Upload.LIST_IGNORE; // prevents adding file to list
+                  }
+
+                  // Optional: File size check (max 1MB)
+                  const isLt1M = file.size / 1024 / 1024 < 1;
+                  if (!isLt1M) {
+                    alert("File must be smaller than 1MB!");
+                    return Upload.LIST_IGNORE;
+                  }
+
+                  return false; // prevent auto-upload, keep manual save
+                }}
                 onChange={handleUploadChange}
                 showUploadList={{
                   showPreviewIcon: false,
