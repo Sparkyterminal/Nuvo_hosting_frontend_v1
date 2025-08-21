@@ -1,17 +1,3 @@
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import './index.css'
-// import App from './App.jsx'
-// import { BrowserRouter } from 'react-router-dom'
-
-// createRoot(document.getElementById('root')).render(
-//   <BrowserRouter>
-//     <StrictMode>
-//     <App />
-//     </StrictMode>
-//   </BrowserRouter>
-
-// )
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
@@ -25,6 +11,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { BrowserRouter } from "react-router-dom";
 import "antd/dist/reset.css";
+import { App as AntdApp } from "antd";
 // import {thunk} from 'redux-thunk';
 
 const reducers = combineReducers({
@@ -54,7 +41,9 @@ createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
-        <App />
+        <AntdApp>
+          <App />
+        </AntdApp>
       </BrowserRouter>
     </PersistGate>
   </Provider>
