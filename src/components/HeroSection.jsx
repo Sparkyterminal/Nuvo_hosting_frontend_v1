@@ -158,15 +158,17 @@ export default function HeroSection() {
               Premium hosting solutions designed to power your digital dreams. Fast, reliable, and secure hosting services that grow with your business.
             </p> */}
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <motion.a
+              <motion.button
                 onClick={() => navigate("/request-quote")}
-                className="cursor-pointer rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200"
+                id="request-quote-button"
+                className="text-white cursor-pointer rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
               >
                 Request a Quote
-              </motion.a>
+              </motion.button>
+
               <motion.a
                 onClick={() => navigate("/recruitment")}
                 className="cursor-pointer text-sm font-semibold text-gray-900 leading-6 hover:text-indigo-600 transition-colors duration-200"

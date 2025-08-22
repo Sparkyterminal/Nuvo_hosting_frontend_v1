@@ -111,3 +111,7 @@ body {
   border-color: #28a745 !important;
   color: white !important;
 }
+
+#request-quote-button {
+  color: white !important; /* Ensure text is white */
+}
