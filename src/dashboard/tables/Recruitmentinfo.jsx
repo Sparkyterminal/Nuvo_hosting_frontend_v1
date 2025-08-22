@@ -85,9 +85,9 @@ const Recruitmentinfo = () => {
       "Group Responsible",
       "Agency",
       "Experience Areas",
-      "Work Type",
-      "Holiday Work",
-      "Availability",
+      // "Work Type",
+      // "Holiday Work",
+      // "Availability",
       "Profile Photo",
       "Created At",
     ];
@@ -120,16 +120,16 @@ const Recruitmentinfo = () => {
       u.groupResponsible || "",
       u.agency || "",
       Array.isArray(u.experienceAreas) ? u.experienceAreas.join(", ") : "",
-      u.workType || "",
-      u.holidayWork || "",
-      (() => {
-        const av = u.availability || {};
-        const labels = [];
-        if (av.fullDay) labels.push("Full Day");
-        if (av.partTime) labels.push("Part Time");
-        if (av.both) labels.push("Both");
-        return labels.join(", ") || "None";
-      })(),
+      // u.workType || "",
+      // u.holidayWork || "",
+      // (() => {
+      //   const av = u.availability || {};
+      //   const labels = [];
+      //   if (av.fullDay) labels.push("Full Day");
+      //   if (av.partTime) labels.push("Part Time");
+      //   if (av.both) labels.push("Both");
+      //   return labels.join(", ") || "None";
+      // })(),
       Array.isArray(u.profilePhoto) && u.profilePhoto.length > 0
         ? u.profilePhoto.map((p) => p.name?.original || "Photo").join(", ")
         : "No Photo",
@@ -258,26 +258,26 @@ const Recruitmentinfo = () => {
           </Tag>
         )),
     },
-    { title: "Work Type", dataIndex: "workType", key: "workType", width: 120 },
-    {
-      title: "Holiday Work",
-      dataIndex: "holidayWork",
-      key: "holidayWork",
-      width: 120,
-    },
-    {
-      title: "Availability",
-      dataIndex: "availability",
-      key: "availability",
-      width: 180,
-      render: (availability) => {
-        const labels = [];
-        if (availability.fullDay) labels.push("Full Day");
-        if (availability.partTime) labels.push("Part Time");
-        if (availability.both) labels.push("Both");
-        return labels.join(", ") || "None";
-      },
-    },
+    // { title: "Work Type", dataIndex: "workType", key: "workType", width: 120 },
+    // {
+    //   title: "Holiday Work",
+    //   dataIndex: "holidayWork",
+    //   key: "holidayWork",
+    //   width: 120,
+    // },
+    // {
+    //   title: "Availability",
+    //   dataIndex: "availability",
+    //   key: "availability",
+    //   width: 180,
+    //   render: (availability) => {
+    //     const labels = [];
+    //     if (availability.fullDay) labels.push("Full Day");
+    //     if (availability.partTime) labels.push("Part Time");
+    //     if (availability.both) labels.push("Both");
+    //     return labels.join(", ") || "None";
+    //   },
+    // },
     {
       title: "Profile Photo",
       dataIndex: "profilePhoto",
